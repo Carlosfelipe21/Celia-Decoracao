@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Espaço Celia Decorações</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    :root{
+      --gold:#d4af37;
+      --gold-light:#f4d97c;
+      --black:#0b0b0b;
+      --wine:#6e0d25;
+      --white:#ffffff;
+      --gray:#d9d9d9;
+      --glass:rgba(255,255,255,0.08);
+    }
+
+    body{
+      background:linear-gradient(180deg,#090909,#151515,#090909);
+      color:var(--white);
+      overflow-x:hidden;
+    }
+
+    /* ===== HERO ===== */
+
+    .hero{
+      min-height:100vh;
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:
+      linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+      url('espaço222.jfif') center/cover no-repeat;
+      z-index:-2;
+      transform:scale(1.1);
+      animation:zoom 18s infinite alternate;
+    }
+
+    @keyframes zoom{
+      from{transform:scale(1.1);}
+      to{transform:scale(1.25);}
+    }
+
+    .glow{
+      position:absolute;
+      width:400px;
+      height:400px;
+      background:radial-gradient(circle,var(--gold),transparent 70%);
+      opacity:.12;
+      border-radius:50%;
+      filter:blur(40px);
+      animation:float 8s infinite ease-in-out;
+    }
+
+    .glow:nth-child(1){
+      top:-120px;
+      left:-100px;
+    }
+
+    .glow:nth-child(2){
+      bottom:-100px;
+      right:-100px;
+      animation-delay:2s;
+    }
+
+    @keyframes float{
+      0%,100%{transform:translateY(0px);}
+      50%{transform:translateY(30px);}
+    }
+
+    .hero-content{
+      max-width:1000px;
+      z-index:2;
+      animation:fadeUp 1.2s ease;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(50px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0px);
+      }
+    }
+
+.hero h1{
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 20px;
+
+  background: linear-gradient(to right, #ffffff, #f8d66a, #ffffff);
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+    .hero p{
+      font-size:1.2rem;
+      color:#f1f1f1;
+      line-height:1.8;
+      max-width:850px;
+      margin:auto;
+    }
+
+    .luxury-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      margin-top:35px;
+      padding:16px 35px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-light));
+      color:#111;
+      border:none;
+      border-radius:60px;
+      font-weight:700;
+      font-size:1rem;
+      text-decoration:none;
+      transition:.4s;
+      box-shadow:0 0 25px rgba(212,175,55,.4);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .luxury-btn::before{
+      content:'';
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);
+      left:-100%;
+      transition:.6s;
+    }
+
+    .luxury-btn:hover::before{
+      left:100%;
+    }
+
+    .luxury-btn:hover{
+      transform:translateY(-5px) scale(1.03);
+      box-shadow:0 0 40px rgba(212,175,55,.6);
+    }
+
+    /* ===== CATALOGO ===== */
+
+    .section{
+      padding:90px 20px;
+      max-width:1400px;
+      margin:auto;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .title h2{
+      font-size:3rem;
+      color:var(--gold-light);
+      margin-bottom:15px;
+    }
+
+    .title p{
+      color:#ddd;
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+    }
+
+    .catalogo{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      position:relative;
+      border-radius:28px;
+      overflow:hidden;
+      min-height:430px;
+      cursor:pointer;
+      background:#111;
+      border:1px solid rgba(255,255,255,.1);
+      transition:.5s;
+      box-shadow:0 10px 30px rgba(0,0,0,.4);
+    }
+
+    .card:hover{
+      transform:translateY(-12px) scale(1.02);
+      box-shadow:0 20px 60px rgba(212,175,55,.25);
+    }
+
+    .card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:1s;
+    }
+
+    .card:hover img{
+      transform:scale(1.12);
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,.95),rgba(0,0,0,.15));
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:30px;
+    }
+
+    .overlay h3{
+      font-size:1.7rem;
+      margin-bottom:10px;
+      color:var(--gold-light);
+    }
+
+    .overlay p{
+      color:#e9e9e9;
+      line-height:1.6;
+      font-size:.95rem;
+    }
+
+    /* ===== INFO ===== */
+
+    .info-box{
+      margin-top:80px;
+      background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:35px;
+      padding:50px 35px;
+      backdrop-filter:blur(12px);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .info-box::before{
+      content:'';
+      position:absolute;
+      width:250px;
+      height:250px;
+      background:radial-gradient(circle,var(--gold),transparent 70%);
+      top:-80px;
+      right:-80px;
+      opacity:.12;
+    }
+
+    .info-box h3{
+      font-size:2rem;
+      margin-bottom:25px;
+      color:var(--gold-light);
+    }
+
+    .beneficios{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+      margin-top:30px;
+    }
+
+    .beneficio{
+      background:rgba(255,255,255,.05);
+      border-radius:18px;
+      padding:18px;
+      transition:.4s;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .beneficio:hover{
+      transform:translateY(-6px);
+      background:rgba(212,175,55,.12);
+    }
+
+    .beneficio span{
+      display:block;
+      font-size:1.05rem;
+      font-weight:600;
+    }
+
+    .valor{
+      margin-top:40px;
+      text-align:center;
+      background:linear-gradient(135deg,var(--wine),#9d1538);
+      border-radius:25px;
+      padding:30px;
+      box-shadow:0 0 40px rgba(110,13,37,.5);
+    }
+
+    .valor h4{
+      font-size:1.5rem;
+      margin-bottom:10px;
+    }
+
+    .valor strong{
+      font-size:3rem;
+      color:var(--gold-light);
+    }
+
+    /* ===== WHATSAPP ===== */
+
+    .whats-grid{
+      margin-top:60px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:25px;
+    }
+
+    .whats-card{
+      background:linear-gradient(145deg,#141414,#1d1d1d);
+      border-radius:25px;
+      padding:30px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,.08);
+      transition:.4s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .whats-card::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg,transparent,rgba(212,175,55,.12),transparent);
+      transform:translateX(-100%);
+      transition:1s;
+    }
+
+    .whats-card:hover::before{
+      transform:translateX(100%);
+    }
+
+    .whats-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 20px 40px rgba(0,0,0,.4);
+    }
+
+    .whats-card h5{
+      font-size:1.4rem;
+      color:var(--gold-light);
+      margin-bottom:12px;
+    }
+
+    .whats-card p{
+      color:#ddd;
+      margin-bottom:25px;
+      line-height:1.6;
+    }
+
+    .btn-whats{
+      display:inline-block;
+      text-decoration:none;
+      background:linear-gradient(135deg,#00c853,#00e676);
+      color:#fff;
+      padding:14px 28px;
+      border-radius:50px;
+      font-weight:700;
+      transition:.4s;
+      box-shadow:0 0 25px rgba(0,230,118,.3);
+    }
+
+    .btn-whats:hover{
+      transform:scale(1.08);
+      box-shadow:0 0 35px rgba(0,230,118,.6);
+    }
+
+    /* ===== INTERAÇÃO FINAL ===== */
+
+    .final{
+      margin-top:100px;
+      text-align:center;
+      position:relative;
+      padding:100px 20px;
+    }
+
+    .circle{
+      width:320px;
+      height:320px;
+      margin:auto;
+      border-radius:50%;
+      background:radial-gradient(circle,var(--gold-light),transparent 70%);
+      opacity:.18;
+      animation:pulse 3s infinite;
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      top:40px;
+      filter:blur(10px);
+    }
+
+    @keyframes pulse{
+      0%{transform:translateX(-50%) scale(1);}
+      50%{transform:translateX(-50%) scale(1.2);}
+      100%{transform:translateX(-50%) scale(1);}
+    }
+
+    .final h2{
+      position:relative;
+      font-size:3rem;
+      z-index:2;
+      color:var(--gold-light);
+      margin-bottom:20px;
+    }
+
+    .final p{
+      position:relative;
+      z-index:2;
+      max-width:750px;
+      margin:auto;
+      color:#eee;
+      line-height:2;
+      margin-bottom:40px;
+    }
+
+    .particles{
+      position:absolute;
+      width:100%;
+      height:100%;
+      inset:0;
+      overflow:hidden;
+      pointer-events:none;
+    }
+
+    .particle{
+      position:absolute;
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--gold-light);
+      animation:particle 8s linear infinite;
+      opacity:.6;
+    }
+
+    @keyframes particle{
+      from{
+        transform:translateY(100vh) scale(0);
+      }
+      to{
+        transform:translateY(-120px) scale(1.4);
+      }
+    }
+
+    .back-btn{
+      position:relative;
+      z-index:3;
+      margin-top:30px;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:#aaa;
+      border-top:1px solid rgba(255,255,255,.08);
+      margin-top:60px;
+      font-size:.95rem;
+    }
+
+    /* ===== RESPONSIVO ===== */
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:3rem;
+      }
+
+      .title h2,
+      .final h2{
+        font-size:2.3rem;
+      }
+
+      .valor strong{
+        font-size:2.4rem;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .hero{
+        padding-top:120px;
+      }
+
+      .hero h1{
+        font-size:2.3rem;
+      }
+
+      .hero p{
+        font-size:1rem;
+      }
+
+      .title h2,
+      .final h2{
+        font-size:2rem;
+      }
+
+      .info-box{
+        padding:35px 20px;
+      }
+
+      .card{
+        min-height:350px;
+      }
+
+      .valor strong{
+        font-size:2rem;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="glow"></div>
+    <div class="glow"></div>
+
+    <div class="hero-content">
+      <h1>Espaço Celia Decorações</h1>
+
+      <p>
+        Elegância, conforto, diversão e uma experiência inesquecível para sua festa.
+        Um espaço sofisticado e preparado para aniversários, confraternizações,
+        eventos familiares e momentos especiais com muito luxo, estilo e diversão.
+      </p>
+
+      <a href="#catalogo" class="luxury-btn">
+        Conhecer o Espaço
+      </a>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section class="section" id="catalogo">
+
+    <div class="title">
+      <h2>Nosso Espaço</h2>
+      <p>
+        Cada detalhe foi preparado para transformar sua comemoração em um momento incrível,
+        com estrutura completa, ambiente aconchegante e clima perfeito para festas.
+      </p>
+    </div>
+
+    <div class="catalogo">
+
+      <div class="card">
+        <img src="./produtos/espaço222.jfif" alt="Área Coberta">
+        <div class="overlay">
+          <h3>Área Coberta</h3>
+          <p>
+            Ambiente elegante com espaço amplo para mesas, música,
+            confraternizações e momentos especiais.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="./produtos/picina.jfif" alt="Piscina">
+        <div class="overlay">
+          <h3>Piscinas</h3>
+          <p>
+            Estrutura incrível com piscinas para adultos e crianças,
+            trazendo diversão e lazer para toda a família.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="./produtos/playgroud.png" alt="Playground">
+        <div class="overlay">
+          <h3>Espaço Kids</h3>
+          <p>
+            Playground e cama elástica para garantir a alegria das crianças
+            durante toda a festa.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="./produtos/espaço4444.jfif" alt="Área Gourmet">
+        <div class="overlay">
+          <h3>Área Gourmet</h3>
+          <p>
+            Espaço perfeito para churrascos, drinks e momentos inesquecíveis
+            com amigos e familiares.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- INFORMAÇÕES -->
+    <div class="info-box">
+
+      <h3>Aluguel Espaço com:</h3>
+
+      <div class="beneficios">
+
+        <div class="beneficio">
+          <span>✔ 10 Conjuntos de Mesas</span>
+        </div>
+
+        <div class="beneficio">
+          <span>✔ Fogão Industrial</span>
+        </div>
+
+        <div class="beneficio">
+          <span>✔ Freezer</span>
+        </div>
+
+        <div class="beneficio">
+          <span>✔ Gelágua</span>
+        </div>
+
+        <div class="beneficio">
+          <span>✔ Churrasqueira</span>
+        </div>
+
+        <div class="beneficio">
+          <span>✔ Mesa de Sinuca</span>
+        </div>
+
+        <div class="beneficio">
+          <span>✔ 2 Banheiros</span>
+        </div>
+
+        <div class="beneficio">
+          <span>✔ 2 Piscinas (P & G)</span>
+        </div>
+
+        <div class="beneficio">
+          <span>✔ Ambiente Familiar</span>
+        </div>
+
+        <div class="beneficio">
+          <span>✔ Não Aceitamos Serviços de Outras Empresas</span>
+        </div>
+
+      </div>
+
+      <div class="valor">
+        <h4>VALOR DO ALUGUEL</h4>
+        <strong>R$ 500,00</strong>
+      </div>
+
+    </div>
+
+    <!-- WHATS -->
+    <div class="title" style="margin-top:90px;">
+      <h2>Reservar Agora</h2>
+      <p>
+        Escolha a quantidade de convidados e fale diretamente no WhatsApp
+        para garantir sua data.
+      </p>
+    </div>
+
+    <div class="whats-grid">
+
+      <div class="whats-card">
+        <h5>Até 40 Pessoas</h5>
+
+        <p>
+          Ideal para aniversários íntimos, encontros especiais e pequenas comemorações.
+        </p>
+
+        <a class="btn-whats"
+        target="_blank"
+        href="https://wa.me/5585988376171?text=Olá%20Celia%20Decorações!%20Tenho%20interesse%20em%20alugar%20o%20espaço%20para%20uma%20festa%20de%20até%2020%20pessoas.%20Gostaria%20de%20mais%20informações%20sobre%20datas%20e%20disponibilidade.">
+        Falar no WhatsApp
+        </a>
+      </div>
+
+      <div class="whats-card">
+        <h5>Até 60 Pessoas</h5>
+
+        <p>
+          Perfeito para festas médias com conforto, diversão e muito estilo.
+        </p>
+
+        <a class="btn-whats"
+        target="_blank"
+        href="https://wa.me/5585988376171?text=Olá%20Celia%20Decorações!%20Gostaria%20de%20informações%20sobre%20o%20aluguel%20do%20espaço%20para%20uma%20festa%20de%20até%2040%20pessoas.%20Poderia%20me%20passar%20mais%20detalhes?">
+        Falar no WhatsApp
+        </a>
+      </div>
+
+      <div class="whats-card">
+        <h5>Até 80 Pessoas</h5>
+
+        <p>
+          Um espaço preparado para eventos maiores com conforto e sofisticação.
+        </p>
+
+        <a class="btn-whats"
+        target="_blank"
+        href="https://wa.me/5585988376171?text=Olá%20Celia%20Decorações!%20Tenho%20interesse%20em%20alugar%20o%20espaço%20para%20aproximadamente%2060%20pessoas.%20Gostaria%20de%20verificar%20disponibilidade%20e%20mais%20informações.">
+        Falar no WhatsApp
+        </a>
+      </div>
+
+      <div class="whats-card">
+        <h5>Eventos Maiores</h5>
+
+        <p>
+          Entre em contato para personalizar sua experiência e tirar dúvidas.
+        </p>
+
+        <a class="btn-whats"
+        target="_blank"
+        href="https://wa.me/5585988376171?text=Olá%20Celia%20Decorações!%20Gostaria%20de%20mais%20informações%20sobre%20o%20aluguel%20do%20espaço%20para%20um%20evento%20maior.%20Poderia%20me%20ajudar?">
+        Falar no WhatsApp
+        </a>
+      </div>
+
+    </div>
+
+    <!-- FINAL -->
+    <div class="final">
+
+      <div class="circle"></div>
+
+      <div class="particles" id="particles"></div>
+
+      <h2>Seu Evento Merece o Melhor</h2>
+
+      <p>
+        Transforme aniversários, confraternizações e momentos especiais
+        em experiências inesquecíveis no Espaço Celia Decorações.
+        Um ambiente sofisticado, acolhedor e preparado para receber você
+        com elegância, conforto e muita diversão.
+      </p>
+
+      <a href="./telainicial.html" class="luxury-btn back-btn">
+        Voltar para Tela Inicial
+      </a>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 - Espaço Celia Decorações • Elegância e Sofisticação em Cada Evento
+  </footer>
+
+  <script>
+
+    // ===== PARTÍCULAS =====
+
+    const particles = document.getElementById('particles');
+
+    for(let i = 0; i < 40; i++){
+
+      const particle = document.createElement('span');
+      particle.classList.add('particle');
+
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDuration = (Math.random() * 5 + 4) + 's';
+      particle.style.opacity = Math.random();
+      particle.style.width = particle.style.height = (Math.random() * 6 + 4) + 'px';
+
+      particles.appendChild(particle);
+    }
+
+    // ===== EFEITO SCROLL =====
+
+    const cards = document.querySelectorAll('.card, .whats-card, .beneficio');
+
+    const observer = new IntersectionObserver((entries)=>{
+
+      entries.forEach((entry)=>{
+
+        if(entry.isIntersecting){
+
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0px)';
+
+        }
+
+      });
+
+    },{
+      threshold:0.2
+    });
+
+    cards.forEach((card)=>{
+
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(50px)';
+      card.style.transition = '.8s';
+
+      observer.observe(card);
+
+    });
+
+  </script>
+
+</body>
+</html>
